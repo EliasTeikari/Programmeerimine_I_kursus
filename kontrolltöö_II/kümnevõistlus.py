@@ -27,6 +27,21 @@ def punktisummad(tulemused):
 
     return hulk
 
+def main():
+    tulemused = loe_tulemused("tulemused.txt")
+    summad = punktisummad(tulemused)
+    punktisumma = int(input("Sisesta punktisumma: "))
 
+    paremad = False
+    for nimi, summa in summad:
+        if summa > punktisumma:
+            print(f"{nimi} - punktisumma {summa}, punktid 100 meetri distantsilt {tulemused[nimi][0]}")
+            paremad = True
+
+    if not paremad:
+        print("Sellest punktisummast paremat tulemust ei ole")
+
+if __name__=="__main__":
+    main()
     
 
