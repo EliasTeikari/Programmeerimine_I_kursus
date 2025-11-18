@@ -14,5 +14,19 @@ def loe_tulemused(fail):
 
         return result
     
+def punktisummad(tulemused):
+    hulk = set()
+    
+    # summa arvutamine
+    for nimi, punktid in tulemused.items():
+        summa = 0
+        for arv in punktid:
+            summa += arv
+        uus_tuple = (nimi, summa)
+        hulk.add(uus_tuple)
 
-            
+    return hulk
+
+
+    
+
