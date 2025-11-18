@@ -20,14 +20,12 @@ def leia_keskmised(fail):
 def kas_rohkem_väravaid(löögid, väravad, fail):
     oodatav_väravad = väravad / 38
     kesk_list = leia_keskmised(fail)
-    kesk_summa = 0
-    for arv in kesk_list:
-        kesk_summa += arv
 
-    if kesk_summa >= oodatav_väravad:
-        return True
-    else:
-        return False
+    for arv in kesk_list:
+        if arv < oodatav_väravad:
+            return False
+
+    return True
     
 def main():
     fail = input("Sisesta faili nimi: ")
@@ -43,7 +41,7 @@ def main():
     if boolean == True:
         print("Kõik mängijad löövad tõenäoliselt piisavalt väravad.")
     elif boolean == False:
-        print("Kõik mängijad tõenäoliselt ei löö piisavalt väravaid")
+        print("kõik mängijad ei löö tõenäoliselt piisavalt väravaid")
 
 
 if __name__=="__main__":
